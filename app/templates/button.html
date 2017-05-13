@@ -10,8 +10,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>{{temp}}</h1>
-        <button type="button" id="tempUp" name="">Increase Temperature</button>
+        <script>
+            $(document).ready(function(){
+                $('#tempUp').click(function(){
+                    inc_temp();
+                });
+            });
+        </script>
+        <h1 id="temp" > {{temp}} </h1>
+        <button type="button" id="tempUp" style="padding: 0;border: none;background: none;">
+            <span class="glyphicon glyphicon-triangle-top"
+                  aria-hidden="true"></span>
+        </button>
+
+
+
+        <script type=text/javascript>
+            function inc_temp() {
+                $.getJSON(
+                    "_incTemp",
+                    function(data) {
+                        $("#temp").text(data)
+                    }
+                );
+            }
+        </script>
     </body>
 </html>
 

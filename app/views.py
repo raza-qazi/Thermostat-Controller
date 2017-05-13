@@ -33,5 +33,10 @@ def update_time():
 @app.route('/button')
 def button():
     global temperature
-    temperature = temperature + 1
     return render_template('button.html', title="Button Demo", temp=temperature)
+
+@app.route('/_incTemp', methods=['GET',  'POST'])
+def inc_button():
+    global temperature
+    temperature += 1
+    return str(temperature)
