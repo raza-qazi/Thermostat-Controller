@@ -1,43 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>{{ title }}</title>
-        <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="/static/css/bootstrap.css" rel="stylesheet">
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script src="/static/js/bootstrap.min.js"></script>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
+<head>
+    <title>{{ title }}</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .window {
+            float: center;
+            margin: 5px;
+            padding: 15px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="window">
         <script>
-            $(document).ready(function(){
-                $('#tempUp').click(function(){
-                    inc_temp();
-                });
+        $(document).ready(function () {
+            $('#tempUp').click(function () {
+                inc_temp();
             });
-        </script>
-        <h1 id="temp" > {{temp}} </h1>
-        <button type="button" id="tempUp" style="padding: 0;border: none;background: none;">
+        });
+    </script>
+    <h1 id="temp"> {{temp}} </h1>
+    <button type="button" id="tempUp" style="border:none; background:none;">
             <span class="glyphicon glyphicon-triangle-top"
                   aria-hidden="true"></span>
-        </button>
+    </button>
 
 
 
-        <script type=text/javascript>
-            function inc_temp() {
-                $.getJSON(
-                    "_incTemp",
-                    function(data) {
-                        $("#temp").text(data)
-                    }
-                );
-            }
-        </script>
-    </body>
+    <script type=text/javascript>
+        function inc_temp() {
+            $.getJSON(
+                "_incTemp",
+                function (data) {
+                    $("#temp").text(data)
+                }
+            );
+        }
+    </script>
+    </div>
+</body>
+
 </html>
-
-
-
-

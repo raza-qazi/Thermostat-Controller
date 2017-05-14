@@ -1,30 +1,31 @@
 <html>
-    <head>
-        <title>{{ title }}</title>
-        <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="/static/css/bootstrap.css" rel="stylesheet">
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <script src="/static/js/bootstrap.min.js"></script>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <script type=text/javascript>
-            function update_values() {
-                $.getJSON(
+<head>
+    <title>{{ title }}</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <script type=text/javascript>
+        function update_values() {
+            $.getJSON(
                 <!--sends a _status request, receives a response and stores-->
                 <!--into a var-->
-                    "_status",
-                    function(data) {
-                        $("#time").text(data.temp)
-                    }
-                );
-            }
+                "_status",
+                function (data) {
+                    $("#time").text(data.temp)
+                }
+            );
+        }
         setInterval('update_values()', 1000);
-        </script>
-        <h1>Current time: </h1>
-        <h3 id="time"></h3>
-    </body>
+    </script>
+    <h1>Current time: </h1>
+    <h3 id="time"></h3>
+</body>
+
 </html>
-
-
